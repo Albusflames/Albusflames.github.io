@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+	
+	* {
+	font-family: 'Kumbh Sans', sans-serif;
+	}
+	
+	.question {
+	padding: 1em;
+	display: block;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid lightgrey;
+	width: 100%;
+	font-size: 70%;
+	background-color: white;
+	text-align: left;
+	}
+	
+	.question:after {
+	 content: "\005E";
+	 color: brown;
+	 transition: 0.5sec;
+	 float: right;}
+	
+	.active:after {
+	transform: rotate(180deg);
+	}
+	
+	.questions{
+	float: right;
+	padding-right: 3em;
+	width: 50%;
+	position: relative;
+	right: 3%;
+	top: 3%;
+	background-color: white;
+	height: 60%;}
+	
+	/* down U+02C6
+	up U+02C7*/
+	
+	.answer{
+	 display: none;
+	 font-weight: inherit;
+	 overflow: hidden;
+	 padding: 1em;
+	 font-size: 60%;
+	 transition: 2s;}
+	 
+	 section {
+		background-color: white;
+		margin: auto;
+		width: 80%;
+		height: 350px;
+		position: absolute;
+		top: 20%;
+		left: 10%;
+		border-radius: 20px;
+		
+		}
+	 body {
+	 background-color: mediumpurple;
+	 width: 100%;
+	 height: 80%;
+	 }
+	 img{
+		width: 40%;
+		float: left;
+		position: relative;
+		right: 10%;
+		display: block;
+		top: 20%;
+		overflow: hidden; }
+	@media screen and (max-width: 600px)
+	{
+	.questions{
+	position: relative;
+	width: 70%;
+	height: 80%;
+	overflow: auto;
+	color: red;}
+	 
+	img{
+	position: absolute;
+	z-index: 2;
+	top: -23%;
+	left: 20%;
+	width : 50%;
+	}
+	
+	@media screen and (max-width: 350px){
+	h1 {
+	position: relative;
+	left: 5%;
+	margin: -3%;
+	}
+	.questions { padding-right: -5%;}
+	}
+	
+	
+	}
+	
+	
+	
+	.attribution{
+		position: relative;
+		bottom: 0px;}
+  </style>
+</head>
+<body>
+<section>
+<img class= 'box' src= "images/illustration-woman-online-mobile.svg" alt= "image">
+<div class= "questions">
+<h1> FAQ </h1>
+  <button class= "question">How many team members can I invite? </button>
+ <div class= "answer"> You can invite up to 2 additional users on the Free plan. There is no limit on 
+  team members for the Premium plan.</div>
+
+
+ <button class= "question"> What is the maximum file upload size?</button>
+ <div class= "answer"> No more than 2GB. All files in your account must fit your allotted storage space.</div>
+
+ <button class= "question"> How do I reset my password?</button>
+  <div class= "answer">Click “Forgot password” from the login page or “Change password” from your profile page.
+  A reset link will be emailed to you.</div>
+
+ <button class= "question"> Can I cancel my subscription?</button>
+ <div class= "answer"> Yes! Send us a message and we’ll process your request no questions asked.</div>
+
+ <button class= "question"> Do you provide additional support?</button>
+ <div class= "answer"> Chat and email support is available 24/7. Phone lines are open during normal business hours.
+  </div>
+  </div>
+  </section>
+  <button class= 'next'> <a href="previewCard/index.html"> NEXT PAGE </a> </button>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Adebisi Oluwafemi</a>
+  
+</body>
+<script>
+	let exp = document.getElementsByClassName("question");
+	let i;
+	for(i = 0; i < exp.length; i++) {
+	exp[i].addEventListener("click", function(){
+	this.classList.toggle('active');
+	
+	let open = this.nextElementSibling;
+	
+	if(open.style.display == "block"){
+	open.style.display = "none";
+	this.style.fontWeight = 'normal';
+	}
+	else{this.style.fontWeight = 'bold';
+	open.style.display = "block";
+	}
+	}
+	);}
+</script>
+</html>
